@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import LoginForm from '../views/LoginView.vue'
 import RegView from '../views/RegView.vue'
 import UserPage from "@/views/UserPageView.vue";
@@ -9,12 +8,9 @@ import uploadResult from "@/views/loadDataResultView";
 import loadDataResultView from "@/views/loadDataResultView";
 const routes = [
   {
-    path: '/',
-    name: 'home',
-    component: HomeView,
-    meta: {
-      requiresAuth: true
-    }
+    path: '/userReview',
+    name: 'userReview',
+    component: UserReview,
   },
   {
     path: '/login',
@@ -34,11 +30,6 @@ const routes = [
     props: true
   },
   {
-    path: '/userReview',
-    name: 'userReview',
-    component: UserReview,
-  },
-  {
     path: '/upload',
     name: 'upload',
     component: loadData
@@ -49,10 +40,10 @@ const routes = [
     component: uploadResult
   },
   {
-    path: '/checkData',
+    path: '/checkData?:platform',
     name: 'checkData',
     component: loadDataResultView
-  }
+  },
 ]
 
 const router = createRouter({

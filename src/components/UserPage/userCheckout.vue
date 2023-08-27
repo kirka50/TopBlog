@@ -1,7 +1,43 @@
-
+<template>
+  <div class="checkout">
+    <div class="data">
+      <div v-if="user.platform == 'Vk'">
+        <div v-for="item in vk" :key="item">
+          <div v-if="item.id == user.id">
+            {{ item.metrics }}
+          </div>
+        </div>
+      </div>
+      <div v-if="user.platform == 'Tg'">
+        <div v-for="item in tg" :key="item">
+          <div v-if="item.id == user.id">
+            {{ item.metrics }}
+          </div>
+        </div>
+      </div>
+      <div v-if="user.platform == 'Yt'">
+        <div v-for="item in yt" :key="item">
+          <div v-if="item.id == user.id">
+            {{ item.metrics }}
+          </div>
+        </div>
+      </div>
+      <div v-if="user.platform == 'Zn'">
+        <div v-for="item in zn" :key="item">
+          <div v-if="item.id == user.id">
+            {{ item.metrics }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <script>
-import tg from '@/tg.json'
+import tg from "@/tg.json"
+import vk from "@/vk.json"
+import yt from "@/yt.json"
+import zn from "@/zn.json"
 
 let userMetrics = []
 
@@ -9,6 +45,10 @@ export default {
   name: "userCheckout.vue",
   data() {
     return {
+      tg: tg,
+      vk: vk,
+      yt: yt,
+      zn: zn,
       userMetrics: userMetrics,
       userMetricsValue: []
     }
@@ -22,23 +62,8 @@ export default {
     }
   },
   mounted() {
-    for (const item in tg) {
-      console.log(tg[item].id)
-      if (tg[item].metrics == null) {
-        continue
-      }
-      this.userMetrics.push(tg[item].metrics[0].name)
-    }
-    for (const item in tg) {
-      console.log(tg[item].id)
-      if (tg[item].metrics == null) {
-        continue
-      }
-      this.userMetricsValue.push(tg[item].metrics[0].value)
-    }
   },
-  computed: {
-  }
+  computed: {}
 }
 
 </script>
@@ -65,25 +90,3 @@ export default {
   min-width: 1200px;
 }
 </style>
-<template>
-  <div class="checkout">
-    <div class="data">
-      <div>
-        {{userMetrics[0]}}:
-      </div>
-      <div>
-        {{ userMetricsValue[0] }}
-      </div>
-      <div>
-        {{ userMetrics[1] }}:
-      </div>
-      <div>
-        {{ userMetricsValue[1] }}
-      </div>
-      <div>
-      </div>
-    </div>
-    <div class="buttons">
-    </div>
-  </div>
-</template>

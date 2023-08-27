@@ -19,6 +19,11 @@ import router from "@/router";
 export default {
   name: "userPreview",
   components: {UserTag},
+  data() {
+    return {
+      bgColor: ''
+    }
+  },
   props: {
     user: {
       id: Number,
@@ -30,6 +35,18 @@ export default {
   methods: {
     toUserPage() {
       router.push({name: "user", params: {id: this.user.id}})
+    },
+  },
+  mounted() {
+    if (this.user.platform == "Vk")
+    {
+      this.bgColor = '#5181B8'
+    } else if (this.user.platform == "Tg") {
+      this.bgColor = '#229ED9'
+    } else if (this.user.platform == "Yt") {
+      this.bgColor = '#DA271E'
+    } else if (this.user.platform == "Zn") {
+      this.bgColor = '#0D1522'
     }
   }
 }
@@ -37,6 +54,33 @@ export default {
 
 <style scoped>
   .user-preview{
+    display: flex;
+    flex-direction: column;
+    height: 325px;
+    width: 350px;
+    background: v-bind(bgColor);
+    border-radius: 20px;
+
+  }
+  .user-previewTg{
+    display: flex;
+    flex-direction: column;
+    height: 325px;
+    width: 350px;
+    background: #229ED9;
+    border-radius: 20px;
+
+  }
+  .user-previewZn{
+    display: flex;
+    flex-direction: column;
+    height: 325px;
+    width: 350px;
+    background: #0D1522;
+    border-radius: 20px;
+
+  }
+  .user-previewYt{
     display: flex;
     flex-direction: column;
     height: 325px;

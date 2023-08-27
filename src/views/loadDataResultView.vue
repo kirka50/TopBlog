@@ -14,14 +14,48 @@
   <div class="content">
     <div class="content__body">
       <div class="left-side">
-        <div v-for="item in tg" :key="item">
-          <img :src="getImgUrl(item.original_file)">
-          {{item.original_file}}
+        <div v-for="item in workData" :key="item">
+          <div v-if="item.processed_file != null">
+            <div v-if="platform == 'Vk'"  @click="chooseData(item)">
+              {{item.processed_file}}
+              <img :src="require('../vk/processed_images/' + item.processed_file)" width="300" height="200">
+            </div>
+            <div v-if="platform == 'Tg'"  @click="chooseData(item)">
+              {{item.processed_file}}
+              <img :src="require('../tg/processed_images/' + item.processed_file)" width="300" height="200">
+            </div>
+            <div v-if="platform == 'Yt'"  @click="chooseData(item)">
+              {{item.processed_file}}
+              <img :src="require('../yt/processed_images/' + item.processed_file)" width="300" height="200">
+            </div>
+            <div v-if="platform == 'Zn'"  @click="chooseData(item)">
+              {{item.processed_file}}
+              <img :src="require('../zn/processed_images/' + item.processed_file)" width="300" height="200">
+            </div>
+
+            <div @click="chooseData(item)">
+
+            </div>
+          </div>
         </div>
       </div>
       <div class="right-side">
         <div class="right-side__content">
-          123
+          <div v-if="workItem.processed_file != null" style="max-width: 500px; max-height: 300px">
+            {{workItem.metrics}}
+            <div v-if="platform == 'Vk'">
+              <img :src="require('../vk/processed_images/' + workItem.processed_file)" width="500" height="600">
+            </div>
+            <div v-if="platform == 'Tg'">
+              <img :src="require('../tg/processed_images/' + workItem.processed_file)" width="500" height="600">
+            </div>
+            <div v-if="platform == 'Yt'">
+              <img :src="require('../yt/processed_images/' + workItem.processed_file)" width="500" height="600">
+            </div>
+            <div v-if="platform == 'Zn'">
+              <img :src="require('../zn/processed_images/' + workItem.processed_file)" width="500" height="600">
+            </div>
+          </div>
         </div>
         <div class="right-side__panel">
           <div class="panel">
@@ -40,11 +74,20 @@
 
 <script>
 import tg from "@/tg.json"
+import vk from "@/vk.json"
+import yt from "@/yt.json"
+import zn from "@/zn.json"
 export default {
   name: "loadDataResultView.vue",
   data() {
     return {
-      tg: tg
+      tg: tg,
+      vk: vk,
+      yt: yt,
+      zn: zn,
+      workData: '',
+      workItem: '',
+      platform: this.$route.params.platform
     }
   },
   computed: {
@@ -55,6 +98,21 @@ export default {
   },
   mounted() {
     console.log(tg[0].original_file)
+    console.log(this.platform)
+    if (this.platform == 'Vk') {
+      this.workData = this.vk
+    } else if (this.platform == 'Tg') {
+      this.workData = this.tg
+    } else if (this.platform == 'Yt') {
+      this.workData = this.yt
+    } else if (this.platform == 'Zn') {
+      this.workData = this.zn
+    }
+  },
+  methods: {
+    chooseData(item) {
+      this.workItem = item
+    }
   }
 }
 </script>

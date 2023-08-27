@@ -17,32 +17,22 @@
         <button>ОтчётИИк</button>
       </div>
       <div class="filter">
-<!--        <div>
-          Поиск
-          <div>
-            <input>
-          </div>
-        </div>
         <div>
-          Выбор даты
+          Выбор платформы:
           <div>
-            <input>
+            <select v-model="platform">
+              <option>Vk</option>
+              <option>Tg</option>
+              <option>Yt</option>
+              <option>Zn</option>
+            </select>
           </div>
-        </div>
-        <div>
-          Фильтр
-          <div>
-            <input>
-          </div>
-        </div>
-        <div class="confirmButton">
-          <button>Применить</button>
         </div>
         <div class="uploadButton">
-        </div>-->
+        </div>
       </div>
       <div class="checkButton">
-        <button @click="this.$router.push({name:'checkData'})">Проверить все скиншоты</button>
+          <button  v-if="platform != ''" @click="this.$router.push({name:'checkData', params: {platform: this.platform}})">Проверить все скиншоты</button>
       </div>
     </div>
     <div class="contentBody">
@@ -60,7 +50,8 @@ export default {
   components: {UserPreview},
   data() {
     return {
-      users
+      users,
+      platform: '',
     }
   },
   methods:{
