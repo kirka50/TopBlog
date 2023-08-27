@@ -8,7 +8,7 @@ import uploadResult from "@/views/loadDataResultView";
 import loadDataResultView from "@/views/loadDataResultView";
 const routes = [
   {
-    path: '/userReview',
+    path: '/',
     name: 'userReview',
     component: UserReview,
   },

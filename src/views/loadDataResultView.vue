@@ -42,7 +42,8 @@
       <div class="right-side">
         <div class="right-side__content">
           <div v-if="workItem.processed_file != null" style="max-width: 500px; max-height: 300px">
-            {{workItem.metrics}}
+            Метрика: {{ workItem.metrics[0].name }}, Значение: {{ workItem.metrics[0].value }},
+            Платформа по мнению нейросети: {{ workItem.predicted_platform }}
             <div v-if="platform == 'Vk'">
               <img :src="require('../vk/processed_images/' + workItem.processed_file)" width="500" height="600">
             </div>
