@@ -1,0 +1,16 @@
+{
+  "1": {
+    "id": 1,
+    "name": "Rogozin",
+    "avatar": "https://cdnn21.img.ria.ru/images/07e7/01/17/1846710254_0:0:2875:1617_1920x0_80_0_0_df4258a7bf55ce11c511d471491445fa.jpg",
+    "platform": "tg",
+    "description": "Грущу по поводу 'Луна-25'"
+  },
+  "2": {
+    "id": 2,
+    "name": "Medvedev",
+    "avatar": "https://cdn.britannica.com/73/194473-050-57F49709/Dmitry-Medvedev-2016.jpg",
+    "platform": "tg",
+    "description": "Я экс-президент РФ"
+  }
+}

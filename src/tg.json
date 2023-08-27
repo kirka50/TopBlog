@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "original_file": "tg\\images\\0a0ba31d-baeb-4095-9835-b0801b995c0a.jpg",
+    "processed_file": "tg\\processed_images\\0a0ba31d-baeb-4095-9835-b0801b995c0a.jpg",
+    "metrics": [
+      {
+        "name": "ERR",
+        "value": "140%"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "original_file": "tg\\images\\0b751210-de3e-412a-b96f-5a8494daa6bf.PNG",
+    "processed_file": "tg\\processed_images\\0b751210-de3e-412a-b96f-5a8494daa6bf.PNG",
+    "metrics": [
+      {
+        "name": "ERR",
+        "value": "73.9%"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "original_file": "tg\\images\\0b751210-de3e-412a-b96f-5a8494daa6bf.PNG"
+  }
+]

@@ -1,6 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginForm from '../views/LoginView.vue'
+import RegView from '../views/RegView.vue'
+import UserPage from "@/views/UserPageView.vue";
+import UserReview from "@/views/userReviewView.vue";
+import loadData from "@/views/loadDataView";
+import uploadResult from "@/views/loadDataResultView";
+import loadDataResultView from "@/views/loadDataResultView";
 const routes = [
   {
     path: '/',
@@ -15,6 +21,37 @@ const routes = [
     name: 'login',
     component: LoginForm
     
+  },
+  {
+    path: '/reg',
+    name: 'reg',
+    component: RegView
+  },
+  {
+    path: '/user:id',
+    name: 'user',
+    component: UserPage,
+    props: true
+  },
+  {
+    path: '/userReview',
+    name: 'userReview',
+    component: UserReview,
+  },
+  {
+    path: '/upload',
+    name: 'upload',
+    component: loadData
+  },
+  {
+    path: '/uploadResult',
+    name: 'uploadResult',
+    component: uploadResult
+  },
+  {
+    path: '/checkData',
+    name: 'checkData',
+    component: loadDataResultView
   }
 ]
 
@@ -35,8 +72,6 @@ const router = createRouter({
     next() // does not require auth, make sure to always call next()!
   }
 }) */
-router.onError(
-  console.log('pizdec')
-)
+
 
 export default router

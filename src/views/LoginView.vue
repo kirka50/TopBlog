@@ -1,21 +1,24 @@
 <template>
-    <div class="body">
+    <div class="loginBody">
         <div class="logoImg">
             <img src="../assets/logo.png" alt="" width="179" height="179" />
         </div>
-        <div class="languageSetup">
-            <languageSetup>
-            </languageSetup>
+        <div>
+            <div class="languageSetup">
+                <languageSetup>
+                </languageSetup>
+            </div>
         </div>
+
         <div class="textField">
             <div class="entryText">
                 Вход
             </div>
             <div class="emailForm">
-                <input>
+                <input placeholder="Email">
             </div>
             <div class="passwordForm">
-                <input>
+                <input placeholder="Пароль">
             </div>
         </div>
         <div>
@@ -23,7 +26,12 @@
                 Войти
             </button>
         </div>
-
+        <div class="reg">
+            Нет учётной записи ?
+            <p1>
+                Зарегестрируйтесь
+            </p1>
+        </div>
     </div>
 </template>
 
@@ -39,20 +47,17 @@ export default {
 </script>
 
 <style scoped>
-.body {
-
+.loginBody {
     flex-direction: column;
     display: flex;
     text-align: center;
     flex-basis: 0;
-
 }
 
 .languageSetup {
     display: flex;
     justify-content: center;
-    margin-left: 17em;
-
+    margin-left: 16em;
 }
 
 .entryText {
@@ -70,6 +75,7 @@ export default {
     border: none;
     border-bottom: solid #3F3F3F 1px;
     width: 300px;
+    outline: none;
 }
 
 .passwordForm {
@@ -84,6 +90,7 @@ export default {
     border: none;
     border-bottom: solid #3F3F3F 1px;
     width: 300px;
+    outline: none;
 }
 
 .textField {
@@ -102,4 +109,19 @@ export default {
     color: #589DDD;
     font-size: 20px;
     font-family: bold;
-}</style>
+    cursor: pointer;
+}
+
+.reg{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-top: 10vh;
+}
+
+.reg p1 {
+    color: #589DDD;
+    text-decoration: underline;
+    cursor: pointer;
+}
+</style>
