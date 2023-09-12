@@ -17,22 +17,26 @@
         <button>ОтчётИИк</button>
       </div>
       <div class="filter">
-        <div>
-          Выбор платформы:
+        <div class="options">
           <div>
-            <select v-model="platform">
-              <option>Vk</option>
-              <option>Tg</option>
-              <option>Yt</option>
-              <option>Zn</option>
-            </select>
+            Поиск
+          </div>
+          <div>
+            Выбор даты
+          </div>
+          <div>
+            Платформа
           </div>
         </div>
-        <div class="uploadButton">
+        <div class="buttons">
+          <button>кнопка 1</button>
+          <button>кнопка 2</button>
         </div>
       </div>
       <div class="checkButton">
-          <button  v-if="platform != ''" @click="this.$router.push({name:'checkData', params: {platform: this.platform}})">Проверить все скиншоты</button>
+        <button v-if="platform != ''" @click="this.$router.push({name:'checkData', params: {platform: this.platform}})">
+          Проверить все скиншоты
+        </button>
       </div>
     </div>
     <div class="contentBody">
@@ -43,18 +47,23 @@
 
 <script>
 import UserPreview from "@/components/userReview/userPreview";
-import users from "../users.json"
+import users from "../users.json";
+import VueMultiselect from 'vue-multiselect';
+
 export default {
 
   name: "userReviewView.vue",
-  components: {UserPreview},
+  // eslint-disable-next-line vue/no-unused-components
+  components: {UserPreview, VueMultiselect},
   data() {
     return {
       users,
       platform: '',
+      selected: null,
+      options: ['VK', 'Telegram', 'Zen', 'YoTube']
     }
   },
-  methods:{
+  methods: {
     toCheckData() {
     }
   }
@@ -168,8 +177,11 @@ header {
   color: black;
   font-weight: normal;
   width: 155px;
-  height: 49px;
+  height: 30px;
   font-size: 16px;
+}
+.filter {
+
 }
 
 </style>
