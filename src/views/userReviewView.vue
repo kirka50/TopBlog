@@ -28,7 +28,7 @@
             Платформа
           </div>
         </div>
-        <div class="buttons">
+        <div class="filter--buttons">
           <button>кнопка 1</button>
           <button>кнопка 2</button>
         </div>
@@ -180,8 +180,11 @@ header {
   height: 30px;
   font-size: 16px;
 }
-.filter {
-
+.filter--buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: flex-end;
 }
 
 </style>
