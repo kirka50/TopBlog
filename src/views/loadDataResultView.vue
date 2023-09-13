@@ -45,25 +45,16 @@
             Метрика: {{ workItem.metrics[0].name }}, Значение: {{ workItem.metrics[0].value }},
             Платформа по мнению нейросети: {{ workItem.predicted_platform }}
             <div v-if="platform == 'Vk'">
-              <img :src="require('../vk/processed_images/' + workItem.processed_file)" width="500" height="600">
+              <img :src="require('../vk/processed_images/' + workItem.processed_file)">
             </div>
             <div v-if="platform == 'Tg'">
-              <img :src="require('../tg/processed_images/' + workItem.processed_file)" width="500" height="600">
+              <img :src="require('../tg/processed_images/' + workItem.processed_file)">
             </div>
             <div v-if="platform == 'Yt'">
-              <img :src="require('../yt/processed_images/' + workItem.processed_file)" width="500" height="600">
+              <img :src="require('../yt/processed_images/' + workItem.processed_file)">
             </div>
             <div v-if="platform == 'Zn'">
-              <img :src="require('../zn/processed_images/' + workItem.processed_file)" width="500" height="600">
-            </div>
-          </div>
-        </div>
-        <div class="right-side__panel">
-          <div class="panel">
-            <div class="panel__text"> asd</div>
-            <div class="panel__buttons">
-              <button class="panel__buttons--red"> Назад </button>
-              <button class="panel__buttons--green"> Потвердить </button>
+              <img :src="require('../zn/processed_images/' + workItem.processed_file)">
             </div>
           </div>
         </div>
@@ -139,7 +130,6 @@ header {
 }
 .content {
   background: #F9F9F9;
-  height: 100vh;
 }
 .content__body {
   padding: 30px 54px 31px 54px;
@@ -149,9 +139,12 @@ header {
 }
 .left-side {
   width: 385px;
-  height: calc(100vh - 75px);
   background: #82D9FF;
   border-radius: 20px;
+}
+.left-side img{
+  border-radius: 20px;
+
 }
 .right-side {
   display: flex;

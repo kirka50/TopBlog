@@ -1,14 +1,17 @@
 <template>
   <header>
     <div class="buttons">
-      <div class="logo"><img src="../assets/blog.png" height="55" width="155" alt="">
+      <div class="logo">
+        <img src="../assets/blog.png" height="55" width="155" alt="">
       </div>
       <div class="navigation">
         <img src="../assets/img.png" height="75" width="75" alt="">
       </div>
     </div>
     <div>
-      <div class="userProfile"></div>
+      <div class="userProfile">
+        <v-icon icon="mdi-account"></v-icon>
+      </div>
     </div>
   </header>
   <div class="body">
@@ -19,17 +22,35 @@
       <div class="filter">
         <div class="options">
           <div>
-            Поиск
+            Поиск:
+            <v-select class="options__platform"
+                      :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
+                      variant="outlined"
+                      chips=""
+                      multiple=""
+            ></v-select>
           </div>
           <div>
-            Выбор даты
+            Выбор даты:
+            <v-select class="options__platform"
+                      :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
+                      variant="outlined"
+                      chips=""
+                      multiple=""
+            ></v-select>
           </div>
           <div>
-            Платформа
+            Платформа:
+            <v-select class="options__platform"
+                :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
+                variant="outlined"
+                chips=""
+                multiple=""
+            ></v-select>
           </div>
         </div>
         <div class="filter--buttons">
-          <button>кнопка 1</button>
+          <dialogMenu> </dialogMenu>
           <button>кнопка 2</button>
         </div>
       </div>
@@ -48,19 +69,19 @@
 <script>
 import UserPreview from "@/components/userReview/userPreview";
 import users from "../users.json";
-import VueMultiselect from 'vue-multiselect';
-
+import dialogMenu from "@/components/userReview/dialogMenu";
 export default {
 
   name: "userReviewView.vue",
-  // eslint-disable-next-line vue/no-unused-components
-  components: {UserPreview, VueMultiselect},
+
+  components: {UserPreview, dialogMenu},
   data() {
     return {
       users,
       platform: '',
       selected: null,
-      options: ['VK', 'Telegram', 'Zen', 'YoTube']
+      options: ['VK', 'Telegram', 'Zen', 'YoTube'],
+
     }
   },
   methods: {
@@ -171,20 +192,30 @@ header {
 }
 
 .reviewButton button {
-  border-radius: 30px;
-  border: none;
-  background: #4FF07C;
-  color: black;
-  font-weight: normal;
-  width: 155px;
-  height: 30px;
-  font-size: 16px;
+
 }
+
 .filter--buttons {
   display: flex;
   flex-direction: column;
   gap: 10px;
   justify-content: flex-end;
+}
+  .filter v-btn {
+  border-radius: 20px;
+  border: none;
+  background: #3461FF;
+  color: white;
+  width: 155px;
+  height: 49px;
+  font-size: 16px;
+}
+
+.options__platform {
+  width: 150px;
+}
+.options__platform v-select {
+
 }
 
 </style>
