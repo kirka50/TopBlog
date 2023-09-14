@@ -8,10 +8,10 @@
       </div>
     </div>
     <div>
-      <div  class="userProfile"></div>
+      <div  class="user-profile"></div>
     </div>
   </header>
-  <div class="contentBody">
+  <div class="body__content">
     <div class="userInfoTable">
       <div>
         <img :src="user.avatar" width="770" height="351" alt="userChanelImage"  class="userImage">
@@ -31,7 +31,7 @@
             </div>
         </div>
         <div>
-          <button class="checkButton">
+          <button class="left-pillar__check-button">
             Отчёт
           </button>
           <button class="uploadButton">
@@ -93,16 +93,16 @@ header {
   text-align: center;
   align-items: center;
 }
-.userProfile {
+.user-profile {
   gap: 5px;
   display: flex;
   align-content: baseline;
 }
-.userProfile p {
+.user-profile p {
   text-overflow: clip;
 }
 
-.contentBody {
+.body__content {
   margin: 16px 32px 0 32px;
 
 }
@@ -146,7 +146,7 @@ header {
   height: 271px;
   border-radius: 18px;
 }
-.checkButton {
+.left-pillar__check-button {
   border-radius: 20px;
   margin-left: 20px;
   width: 149px;

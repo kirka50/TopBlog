@@ -7,7 +7,7 @@
         class="btn--text"
 
     >
-      Кнопка
+      {{dialogButtonName}}
 
       <v-dialog
           v-model="dialog"
@@ -38,7 +38,8 @@ export default {
     }
   },
   props: {
-    content: String
+    content: String,
+    dialogButtonName: String
   }
 }
 </script>

@@ -8,7 +8,7 @@
       </div>
     </div>
     <div>
-      <div class="userProfile"></div>
+      <div class="user-profile"></div>
     </div>
   </header>
   <div class="content">

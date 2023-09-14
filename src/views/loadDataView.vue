@@ -8,7 +8,7 @@
       </div>
     </div>
     <div>
-      <div  class="userProfile"> Кирилл Резников <img src="../assets/quitIco.png" height="20" width="20" alt=""></div>
+      <div  class="user-profile"> Кирилл Резников <img src="../assets/quitIco.png" height="20" width="20" alt=""></div>
     </div>
   </header>
   <div class="load-data__body">
