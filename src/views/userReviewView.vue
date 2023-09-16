@@ -32,16 +32,6 @@
             ></v-select>
           </div>
           <div>
-            Выбор даты:
-            <v-select class="options__platform"
-
-                      :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
-                      variant="outlined"
-                      chips=""
-                      multiple=""
-            ></v-select>
-          </div>
-          <div>
             Платформа:
             <v-select
                 class="options__platform"
@@ -58,14 +48,17 @@
       </div>
       <div class="left-pillar__check-buttons">
         <v-btn class="text-none"
-        rounded="60px">Кнопка 1</v-btn>
+        rounded="60px"
+        @click="sortedUsers"
+        >Отсортировать</v-btn>
         <v-btn class="text-none"
-               rounded="60px">Кнопка 1</v-btn>
-
+               rounded="60px"
+               @click="unsortUsers"
+        >Сбросить</v-btn>
       </div>
     </div>
     <div class="body__content">
-      <user-preview v-for="item in users" :key="item" :user="item" :id="item.id"></user-preview>
+      <user-preview v-for="item in sorted" :key="item" :user="item" :id="item.id"></user-preview>
 
     </div>
   </div>
@@ -84,14 +77,37 @@ export default {
     return {
       users,
       platform: [],
-      selected: null,
-      options: ['VK', 'Telegram', 'Zen', 'YoTube'],
+      options: ['VK', 'Telegram', 'Zen', 'YouTube'],
+      sorted: users
 
     }
   },
   methods: {
     toCheckData() {
-    }
+    },
+    sortedUsers() {
+      const users = this.users
+      this.sorted = []
+      console.log(users)
+      console.log(this.platform)
+      if (this.platform == '') {
+        console.log('aaaa')
+        this.sorted = users
+        return
+      }
+      for (const i in users) {
+        console.log(users[i].platform + '  variable')
+        if (this.platform.includes(users[i].platform)) {
+          this.sorted.push(users[i])
+        }
+      }
+    },
+    unsortUsers() {
+      this.sorted = this.users
+      this.platform = []
+      }
+  },
+  computed: {
   }
 }
 </script>
@@ -185,6 +201,7 @@ header {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  align-items: center;
 }
 
 .left-pillar__check-buttons button {
@@ -196,18 +213,9 @@ header {
   height: 49px;
   font-size: 16px;
   cursor: pointer;
-}
-
-.left-pillar__review-button button {
 
 }
 
-.filter--buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  justify-content: flex-end;
-}
   .left-pillar__filter v-btn {
   border-radius: 20px;
   border: none;
@@ -224,8 +232,6 @@ header {
 .options__platform v-select {
 
 }
-.left-pillar__check-buttons button {
-  background-color: #3461FF;
-}
+
 
 </style>

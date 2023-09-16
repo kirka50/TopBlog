@@ -38,14 +38,14 @@ export default {
     },
   },
   mounted() {
-    if (this.user.platform == "Vk")
+    if (this.user.platform == "VK")
     {
       this.bgColor = '#5181B8'
-    } else if (this.user.platform == "Tg") {
+    } else if (this.user.platform == "Telegram") {
       this.bgColor = '#229ED9'
-    } else if (this.user.platform == "Yt") {
+    } else if (this.user.platform == "YouTube") {
       this.bgColor = '#DA271E'
-    } else if (this.user.platform == "Zn") {
+    } else if (this.user.platform == "Zen") {
       this.bgColor = '#0D1522'
     }
   }
