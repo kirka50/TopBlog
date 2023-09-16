@@ -31,7 +31,7 @@
             </div>
         </div>
         <div>
-          <button class="left-pillar__check-button">
+          <button class="left-pillar__check-buttons">
             Отчёт
           </button>
           <button class="uploadButton">
@@ -146,7 +146,7 @@ header {
   height: 271px;
   border-radius: 18px;
 }
-.left-pillar__check-button {
+.left-pillar__check-buttons {
   border-radius: 20px;
   margin-left: 20px;
   width: 149px;

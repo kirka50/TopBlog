@@ -54,18 +54,19 @@
           </div>
         </div>
         <div class="filter__buttons">
-          <dialogMenu>Кнопка 1</dialogMenu>
-          <button>кнопка 2</button>
         </div>
       </div>
-      <div class="left-pillar__check-button">
-        <button v-if="platform != ''" @click="this.$router.push({name:'checkData', params: {platform: this.platform}})">
-          Проверить все скиншоты
-        </button>
+      <div class="left-pillar__check-buttons">
+        <v-btn class="text-none"
+        rounded="60px">Кнопка 1</v-btn>
+        <v-btn class="text-none"
+               rounded="60px">Кнопка 1</v-btn>
+
       </div>
     </div>
     <div class="body__content">
       <user-preview v-for="item in users" :key="item" :user="item" :id="item.id"></user-preview>
+
     </div>
   </div>
 </template>
@@ -179,13 +180,14 @@ header {
   padding-top: 10px;
 }
 
-.left-pillar__check-button {
+.left-pillar__check-buttons {
   padding: 10px 0 10px 0;
-  border-top: #545454 solid 1px;
-  border-bottom: #545454 solid 1px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.left-pillar__check-button button {
+.left-pillar__check-buttons button {
   border-radius: 20px;
   border: none;
   background: #3461FF;
@@ -221,6 +223,9 @@ header {
 }
 .options__platform v-select {
 
+}
+.left-pillar__check-buttons button {
+  background-color: #3461FF;
 }
 
 </style>
