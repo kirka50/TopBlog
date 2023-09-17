@@ -24,12 +24,7 @@
         <div class="filter__options">
           <div>
             Поиск:
-            <v-select class="options__platform"
-                      :items="['California', 'Colorado', 'Florida', 'Georgia', 'Texas', 'Wyoming']"
-                      variant="outlined"
-                      chips=""
-                      multiple=""
-            ></v-select>
+            <v-text-field v-model="userToFind" variant="outlined"></v-text-field>
           </div>
           <div>
             Платформа:
@@ -49,7 +44,7 @@
       <div class="left-pillar__check-buttons">
         <v-btn class="text-none"
         rounded="60px"
-        @click="sortedUsers"
+        @click="initSort"
         >Отсортировать</v-btn>
         <v-btn class="text-none"
                rounded="60px"
@@ -78,20 +73,38 @@ export default {
       users,
       platform: [],
       options: ['VK', 'Telegram', 'Zen', 'YouTube'],
-      sorted: users
+      sorted: users,
+      userToFind: ''
 
     }
   },
   methods: {
-    toCheckData() {
-    },
-    sortedUsers() {
+    sortByUser() {
       const users = this.users
       this.sorted = []
-      console.log(users)
-      console.log(this.platform)
+      for (const i in users) {
+        if (users[i].name == this.userToFind) {
+          this.sorted.push(users[i])
+        }
+      }
+    },
+    initSort() {
+      console.log('a')
+      if (this.userToFind){
+        console.log('apopa')
+        this.sortByUser()
+
+      } else {
+        console.log('aaaa' + this.userToFind)
+        this.sortedUsers()
+      }
+    },
+    sortedUsers() {
+
+      const users = this.users
+      this.sorted = []
       if (this.platform == '') {
-        console.log('aaaa')
+
         this.sorted = users
         return
       }
@@ -108,6 +121,13 @@ export default {
       }
   },
   computed: {
+    getUsersNames() {
+      const userNames = []
+      for (const i in users) {
+        userNames.push(users[i].name)
+      }
+      return userNames
+    }
   }
 }
 </script>
