@@ -1,19 +1,4 @@
 <template>
-  <header>
-    <div class="header__icons">
-      <div class="logo">
-        <img src="../assets/blog.png" height="55" width="155" alt="">
-      </div>
-      <div class="navigation">
-        <img src="../assets/img.png" height="75" width="75" alt="">
-      </div>
-    </div>
-    <div class="header__user-profile">
-      <div class="user-profile">
-        <v-icon icon="mdi-account"></v-icon>
-      </div>
-    </div>
-  </header>
   <div class="body">
     <div class="body__left-pillar">
       <div class="left-pillar__review-button">
@@ -133,34 +118,7 @@ export default {
 </script>
 
 <style scoped>
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 75px;
-  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
-  padding: 0 20px 0 20px;
-  min-width: 366px;
-}
 
-.header__icons {
-  display: flex;
-  justify-content: flex-start;
-  gap: 20px;
-  text-align: center;
-  align-items: center;
-}
-
-.user-profile {
-  gap: 5px;
-  display: flex;
-  align-content: baseline;
-}
-
-.user-profile p {
-  text-overflow: clip;
-}
 
 .body {
   display: flex;

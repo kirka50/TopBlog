@@ -1,8 +1,17 @@
 <template>
+  <myheader></myheader>
   <router-view/>
 </template>
-
+<script>
+import myheader from "@/components/Header";
+export default {
+  components: {
+    myheader
+  }
+}
+</script>
 <style lang="scss">
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

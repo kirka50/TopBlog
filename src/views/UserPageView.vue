@@ -1,20 +1,9 @@
+
 <template>
-  <header>
-    <div class="header__buttons">
-      <div class="buttons__logo"> <img src="../assets/blog.png" height="55" width="155" alt="">
-        </div>
-      <div class="buttons__navigation">
-        <img src="../assets/img.png" height="75" width="75" alt="">
-      </div>
-    </div>
-    <div>
-      <div  class="header__user-profile"></div>
-    </div>
-  </header>
   <div class="body__content">
     <div class="content__user-info">
       <div>
-        <img :src="user.avatar" width="770" height="351" alt="userChanelImage"  class="userImage">
+        <img :src="user.avatar" width="770" height="351" alt="userChanelImage"  class="user-info__user-image">
       </div>
       <div class="user-info__user-name-desk">
         <div class="user-name-desk__name">
@@ -31,18 +20,50 @@
             </div>
         </div>
         <div>
-          <button class="user-info__check-button">
+          <button v-ripple class="user-info__check-button">
             Отчёт
+            <v-dialog
+                v-model="dialog1"
+                activator="parent"
+                width="auto"
+            >
+              <v-card>
+                <v-card-text>
+                  По концепции проекта эта кнопка отвечает за выгрузку пользователем различных данных
+
+                </v-card-text>
+                <v-card-actions>
+                  <v-btn color="#4FF07C" block @click="dialog1 = false">Закрыть</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-dialog>
           </button>
-          <button class="user-info__upload-button">
-            Загрузить
-          </button>
+
+            <button v-ripple class="user-info__upload-button">
+              Загрузить
+              <v-dialog
+                  v-model="dialog"
+                  activator="parent"
+                  width="auto"
+              >
+                <v-card>
+                  <v-card-text>
+                    Эта кнопка отвечает за загрузку пользователем своей статистики в различных форматах
+                  </v-card-text>
+                  <v-card-actions>
+                    <v-btn color="#4FF07C" block @click="dialog = false">Закрыть</v-btn>
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+            </button>
+
+
         </div>
       </div>
     </div>
     <div class="body__checkout-space">
-      <UserCheckout :user="user">
-      </UserCheckout>
+<!--      <UserCheckout :user="user">
+      </UserCheckout>-->
     </div>
 
 
@@ -51,17 +72,21 @@
 </template>
 
 <script>
+/* eslint-disable */
 import UserCheckout from '../components/UserPage/userCheckout'
+import dialogMenu from "@/components/userReview/dialogMenu";
 import users from '../users.json'
 export default {
   name: "UserPage",
-  components: {UserCheckout},
+  components: {UserCheckout, dialogMenu},
   props: {
 
   },
   data(){
     return{
-      user: users[this.$route.params.id]
+      user: users[this.$route.params.id],
+      dialog1: false,
+      dialog: false
     }
   },
   computed: {
@@ -75,32 +100,7 @@ export default {
 </script>
 
 <style scoped>
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  height: 75px;
-  box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
-  padding: 0 20px 0 20px;
-  min-width: 366px;
-}
 
-.header__buttons {
-  display: flex;
-  justify-content: flex-start;
-  gap: 20px;
-  text-align: center;
-  align-items: center;
-}
-.header__user-profile {
-  gap: 5px;
-  display: flex;
-  align-content: baseline;
-}
-.header__user-profile p {
-  text-overflow: clip;
-}
 
 .body__content {
   margin: 16px 32px 0 32px;
@@ -108,7 +108,7 @@ header {
 }
 
 .content__user-info {
-  max-height: 351px;
+  min-height: 351px;
   padding: 31px 72px;
   display: flex;
   background: #EBE8FF;
@@ -151,7 +151,7 @@ header {
   text-align: left;
 }
 
-.userImage {
+.user-info__user-image {
   border-radius: 20px;
 }
 .user-name-desk__desk {
