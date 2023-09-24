@@ -1,46 +1,46 @@
 <template>
   <header>
-    <div class="buttons">
-      <div class="logo"> <img src="../assets/blog.png" height="55" width="155" alt="">
+    <div class="header__buttons">
+      <div class="buttons__logo"> <img src="../assets/blog.png" height="55" width="155" alt="">
         </div>
-      <div class="navigation">
+      <div class="buttons__navigation">
         <img src="../assets/img.png" height="75" width="75" alt="">
       </div>
     </div>
     <div>
-      <div  class="user-profile"></div>
+      <div  class="header__user-profile"></div>
     </div>
   </header>
   <div class="body__content">
-    <div class="userInfoTable">
+    <div class="content__user-info">
       <div>
         <img :src="user.avatar" width="770" height="351" alt="userChanelImage"  class="userImage">
       </div>
-      <div class="userNameAndDesk">
-        <div class="userName">
+      <div class="user-info__user-name-desk">
+        <div class="user-name-desk__name">
           {{ user.name }}
         </div>
-        <div class="userDesc">
+        <div class="user-name-desk__desk">
           {{ user.description }}
         </div>
       </div>
       <div>
         <div>
-            <div class="userStats">
+            <div class="user-info__user-stats">
               {{user.platform}}
             </div>
         </div>
         <div>
-          <button class="left-pillar__check-buttons">
+          <button class="user-info__check-button">
             Отчёт
           </button>
-          <button class="uploadButton">
+          <button class="user-info__upload-button">
             Загрузить
           </button>
         </div>
       </div>
     </div>
-    <div class="checkout">
+    <div class="body__checkout-space">
       <UserCheckout :user="user">
       </UserCheckout>
     </div>
@@ -86,19 +86,19 @@ header {
   min-width: 366px;
 }
 
-.buttons {
+.header__buttons {
   display: flex;
   justify-content: flex-start;
   gap: 20px;
   text-align: center;
   align-items: center;
 }
-.user-profile {
+.header__user-profile {
   gap: 5px;
   display: flex;
   align-content: baseline;
 }
-.user-profile p {
+.header__user-profile p {
   text-overflow: clip;
 }
 
@@ -107,7 +107,7 @@ header {
 
 }
 
-.userInfoTable {
+.content__user-info {
   max-height: 351px;
   padding: 31px 72px;
   display: flex;
@@ -116,7 +116,32 @@ header {
   box-shadow: 0px 5px 10px 2px rgba(34, 60, 80, 0.2);
   justify-content: space-evenly;
 }
-.userName {
+.user-info__user-stats {
+  background: white;
+  width: 330px;
+  margin-left: 24px;
+  height: 271px;
+  border-radius: 18px;
+}
+.user-info__check-button {
+  border-radius: 20px;
+  margin-left: 20px;
+  width: 149px;
+  height: 60px;
+  margin-top: 20px;
+  border: none;
+  background: #4FF07C;
+}
+.user-info__upload-button {
+  border-radius: 20px;
+  margin-left: 10px;
+  width: 149px;
+  height: 60px;
+  margin-top: 20px;
+  border: none;
+  background: #82D9FF;
+}
+.user-name-desk__name {
   background: white;
   height: 97px;
   width: 543px;
@@ -129,7 +154,7 @@ header {
 .userImage {
   border-radius: 20px;
 }
-.userDesc {
+.user-name-desk__desk {
   background: white;
   height: 237px;
   width: 543px;
@@ -139,32 +164,8 @@ header {
   font-size: 32px;
   text-align: left;
 }
-.userStats {
-  background: white;
-  width: 330px;
-  margin-left: 24px;
-  height: 271px;
-  border-radius: 18px;
-}
-.left-pillar__check-buttons {
-  border-radius: 20px;
-  margin-left: 20px;
-  width: 149px;
-  height: 60px;
-  margin-top: 20px;
-  border: none;
-  background: #4FF07C;
-}
-.uploadButton {
-  border-radius: 20px;
-  margin-left: 10px;
-  width: 149px;
-  height: 60px;
-  margin-top: 20px;
-  border: none;
-  background: #82D9FF;
-}
-.checkout {
+
+.body__checkout-space {
   margin-top: 10px;
 }
 </style>

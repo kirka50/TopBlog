@@ -113,7 +113,7 @@ header {
   min-width: 366px;
 }
 
-.buttons {
+.header__buttons {
   display: flex;
   justify-content: flex-start;
   gap: 20px;
