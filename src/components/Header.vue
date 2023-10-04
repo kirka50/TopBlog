@@ -10,7 +10,7 @@
     </div>
     <div class="header__user-profile">
       <div class="user-profile">
-        Кирилл Резников
+        {{getUserName.name}}
         <v-icon icon="mdi-account"></v-icon>
         <v-icon icon="mdi-logout"></v-icon>
       </div>
@@ -20,7 +20,12 @@
 
 <script>
 export default {
-  name: "MyHeader"
+  name: "MyHeader",
+  computed: {
+    getUserName() {
+     return this.$store.getters.getUser
+    }
+  }
 }
 </script>
 

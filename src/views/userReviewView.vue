@@ -1,4 +1,5 @@
 <template>
+  <my-header></my-header>
   <div class="body">
     <div class="body__left-pillar">
       <div class="left-pillar__review-button">
@@ -48,11 +49,12 @@
 import UserPreview from "@/components/userReview/userPreview";
 import users from "../users.json";
 import dialogMenu from "@/components/userReview/dialogMenu";
+import MyHeader from "@/components/Header";
 export default {
 
   name: "userReviewView.vue",
 
-  components: {UserPreview, dialogMenu},
+  components: {MyHeader, UserPreview, dialogMenu},
   data() {
     return {
       users,

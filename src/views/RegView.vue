@@ -34,7 +34,7 @@
         </div>
         <div class="reg">
             Есть учётная запись ?
-            <p1>
+            <p1 @click="$router.push('/login')">
                 Войдите
             </p1>
         </div>

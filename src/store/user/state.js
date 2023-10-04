@@ -1,6 +1,7 @@
 const generateState = () => ({
     data: {
-        user: {name: 'asdad'},
+        usersList:['Кирилл Резников','KaiKane'],
+        user: {name:''},
         userData: {
             email: '',
             name: '',

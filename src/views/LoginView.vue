@@ -15,20 +15,25 @@
                 Вход
             </div>
             <div class="emailForm">
-                <input placeholder="Email">
+                <input placeholder="Логин" v-model="login">
             </div>
-            <div class="passwordForm">
-                <input placeholder="Пароль">
+
+            <div class="passwordForm" >
+              <input placeholder="Пароль">
+              <v-tooltip activator="parent" location="bottom">
+                Пароль вводить не обязательно, для простоты можете ввести только логин :)
+              </v-tooltip>
             </div>
+
         </div>
         <div>
-            <button class="loginButton">
+            <button class="loginButton" v-ripple @click="loginCheck(this.login)">
                 Войти
             </button>
         </div>
         <div class="reg">
             Нет учётной записи ?
-            <p1>
+            <p1 @click="$router.push('/reg')">
                 Зарегестрируйтесь
             </p1>
         </div>
@@ -41,7 +46,33 @@ export default {
     name: 'LoginForm',
     components: {
         LanguageSetup
-    }
+    },
+  methods: {
+      loginCheck(login) {
+        if (this.isUserInUsersList(login)) {
+          this.$store.commit('loginUser', {name: login})
+          console.log(login)
+          this.$router.push('/')
+        }
+      },
+      isUserInUsersList(user) {
+        if(user) {
+          let userList = this.$store.getters.getUserList
+          for (let i in userList) {
+            if (user == userList[i]){
+              console.log('saa')
+              return true
+            }
+          }
+          return false
+        }
+      }
+  },
+  data() {
+      return {
+        login: '',
+      }
+  }
 }
 
 </script>

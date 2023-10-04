@@ -1,4 +1,5 @@
 <template>
+  <my-header></my-header>
   <header>
     <div class="buttons">
       <div class="logo"> <img src="../assets/blog.png" height="55" width="155" alt="">
@@ -52,8 +53,10 @@
 </template>
 
 <script>
+import MyHeader from "@/components/Header";
 export default {
   name: "loadDataView.vue",
+  components: {MyHeader},
   data() {
     return {
       platform: "",

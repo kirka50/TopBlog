@@ -1,12 +1,9 @@
 <template>
-  <myheader></myheader>
   <router-view/>
 </template>
 <script>
-import myheader from "@/components/Header";
 export default {
   components: {
-    myheader
   }
 }
 </script>

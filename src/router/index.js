@@ -6,11 +6,16 @@ import UserReview from "@/views/userReviewView.vue";
 import loadData from "@/views/loadDataView";
 import uploadResult from "@/views/loadDataResultView";
 import loadDataResultView from "@/views/loadDataResultView";
+import store from "@/store";
+/* eslint-disable */
 const routes = [
   {
     path: '/',
     name: 'userReview',
     component: UserReview,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/login',
@@ -27,22 +32,34 @@ const routes = [
     path: '/user:id',
     name: 'user',
     component: UserPage,
-    props: true
+    props: true,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/upload',
     name: 'upload',
-    component: loadData
+    component: loadData,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/uploadResult',
     name: 'uploadResult',
-    component: uploadResult
+    component: uploadResult,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/checkData?:platform',
     name: 'checkData',
-    component: loadDataResultView
+    component: loadDataResultView,
+    meta: {
+      requiresAuth: true
+    }
   },
 ]
 
@@ -50,19 +67,21 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
-/* router.beforeEach((to, from, next) => {
-  if (to.matched.some(record => record.meta.requiresAuth)) {
+router.beforeEach((to, from) => {
+  // instead of having to check every route record with
+  // to.matched.some(record => record.meta.requiresAuth)
+  if (to.meta.requiresAuth && !(store.getters.isLogged)) {
     // this route requires auth, check if logged in
     // if not, redirect to login page.
-    if (!user) {
-      return({ name: 'login' })
-    } else {
-      next() // go to wherever I'm going
+    return {
+      path: '/login',
+      // save the location we were at to come back later
+      query: { redirect: to.fullPath },
     }
-  } else {
-    next() // does not require auth, make sure to always call next()!
   }
-}) */
+})
+
+
 
 
 export default router

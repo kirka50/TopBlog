@@ -1,16 +1,5 @@
 <template>
-  <header>
-    <div class="buttons">
-      <div class="logo"> <img src="../assets/blog.png" height="55" width="155" alt="">
-      </div>
-      <div class="navigation">
-        <img src="../assets/img.png" height="75" width="75" alt="">
-      </div>
-    </div>
-    <div>
-      <div class="user-profile"></div>
-    </div>
-  </header>
+  <my-header></my-header>
   <div class="content">
     <div class="content__body">
       <div class="left-side">
@@ -69,8 +58,10 @@ import tg from "@/tg.json"
 import vk from "@/vk.json"
 import yt from "@/yt.json"
 import zn from "@/zn.json"
+import MyHeader from "@/components/Header";
 export default {
   name: "loadDataResultView.vue",
+  components: {MyHeader},
   data() {
     return {
       tg: tg,

@@ -1,0 +1,3 @@
+function isUserInUsersList({commit},user) {
+
+}
