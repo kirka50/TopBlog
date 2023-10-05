@@ -15,7 +15,7 @@
                 Вход
             </div>
             <div class="emailForm">
-                <input placeholder="Логин" v-model="login">
+                <input placeholder="Логин" v-model="login"  @keydown.enter="loginCheck(this.login)">
             </div>
 
             <div class="passwordForm" >

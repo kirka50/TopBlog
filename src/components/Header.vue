@@ -12,7 +12,7 @@
       <div class="user-profile">
         {{getUserName.name}}
         <v-icon icon="mdi-account"></v-icon>
-        <v-icon icon="mdi-logout"></v-icon>
+        <v-icon icon="mdi-logout" @click="userLogout"></v-icon>
       </div>
     </div>
   </header>
@@ -24,6 +24,12 @@ export default {
   computed: {
     getUserName() {
      return this.$store.getters.getUser
+    }
+  },
+  methods: {
+    userLogout() {
+      this.$store.commit('deLoginUser')
+      this.$router.push('/login')
     }
   }
 }
