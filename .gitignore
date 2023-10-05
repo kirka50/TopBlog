@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-/dist
+
 
 
 # local env files
@@ -94,3 +94,10 @@ pnpm-debug.log*
 /src/tg/images/._qq.jpg
 /src/tg/processed_images/._w.png
 /src/tg/images/._ww.png
+/src/store/user/._actions.js
+/src/._App.vue
+/._dist
+/src/components/._Header.vue
+/src/components/userReview/._tagSearch.vue
+/src/._users.json
+/._vue.config.js
