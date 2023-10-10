@@ -1,5 +1,5 @@
 <template>
-  <my-header></my-header>
+  <my-header style="min-width: 1400px"></my-header>
   <div class="body__content">
     <div class="content__user-info">
       <div>
@@ -100,13 +100,13 @@ export default {
 
 <style scoped>
 .body__content {
-  margin: 16px 32px 0 32px;
-
+  margin: 1% 1vw 0 0;
+  min-width: 1400px;
 }
 
 .content__user-info {
   min-height: 351px;
-  padding: 31px 72px;
+  padding: 1% 5%;
   display: flex;
   background: #EBE8FF;
   border-radius: 30px;
@@ -145,10 +145,9 @@ export default {
 .user-name-desk__name {
   background: white;
   height: 97px;
-  width: 543px;
   border-radius: 10px;
   margin-left: 42px;
-  font-size: 42px;
+  font-size: 26px;
   text-align: left;
 }
 
@@ -159,11 +158,11 @@ export default {
 .user-name-desk__desk {
   background: white;
   height: 237px;
-  width: 543px;
+  min-width: 10vw;
   border-radius: 10px;
   margin-left: 42px;
   margin-top: 17px;
-  font-size: 32px;
+  font-size: 20px;
   text-align: left;
 }
 
